@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+
+img {
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: block;
+}
+a {
+  margin-left: 30px;
+  color: #3c63cc;
+  font-weight: 600;
+}
+a:hover {
+  margin-left: 30px;
+  color: #2fa1fd;
+}
+.modernForm {
+  max-width: 70%;
+  display: flex;
+  margin: 100px auto;
+  background-color: #7c86d3;
+  border-radius: 10px;
+  
+}
+.imageSection {
+  flex-basis: 50%;
+  position: relative;
+  color: white;
+}
+
+
+.tagLine {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+.contactForm {
+  flex-basis: 45%;
+  margin: auto;
+  color: #555;
+  padding-left: 30px;
+  justify-content: center;
+  
+}
+.contactForm h1 {
+  padding: 15px 20px;
+}
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: rgb(177, 177, 177) 1px solid;
+  margin-top: 10px;
+}
+.name {
+  position: relative;
+  margin-bottom: 20px;
+}
+.iconName {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+input[type="submit"] {
+  background-color: #3c63cc;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  padding: 10px 50px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 30px 0;
+  cursor: pointer;
+  float: left;
+ 
+}
+input[type="submit"]:hover {
+  background-color: #2fa1fd;
+}
+.checkbox{
+  text-align: center;
+}
+
+

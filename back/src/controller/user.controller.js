@@ -1,15 +1,7 @@
-//connect to db and create table
-db.configserverdb
-  .sync()
-  .then(() => {
-    console.log("****** tables created ! *********");
-  })
-  .catch((err) => {
-    console.log("err", err);
-  });
+const User = require("../config/dbconnection").user;
 
 /* GET BY ID */
-const getUser = async (req, res) => {
+exports.getUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = await User.findOne({ where: { id: id } });
@@ -20,30 +12,32 @@ const getUser = async (req, res) => {
 };
 
 /* ADD */
-const setUser = async (req, res) => {
+exports.AddUser = async (req, res) => {
   try {
     //destruction of object
-
     const { fullName, email, phoneNumber, date, destination, nbreVoy } =
       req.body;
-    return (
-      await db.user.create({
-        fullName: fullName,
-        email: email,
-        phoneNumber: phoneNumber,
-        date: date,
-        destination: destination,
-        nbreVoy: nbreVoy,
-      }),
-      res.status(201).send("user saved")
-    );
+
+    const user = await User.create({
+      fullName: fullName,
+      email: email,
+      phoneNumber: phoneNumber,
+      date: date,
+      destination: destination,
+      nbreVoy: nbreVoy,
+    });
+    res.status(201).send({
+      result: user,
+      message: "user saved",
+      statusCode: 201,
+    });
   } catch (error) {
     res.status(500).send("server error :", err);
   }
 };
 
 /* GET ALL */
-const getUsers = async (req, res) => {
+exports.getUsers = async (req, res) => {
   try {
     const users = await User.findAll();
 
@@ -54,40 +48,15 @@ const getUsers = async (req, res) => {
 };
 
 /* UPDATE */
-app.put("/update/:id", async (req, res) => {
+exports.updateUser = async (req, res) => {
   try {
     const id = req.params.id;
-    let { fullName, email, phoneNumber, date, destination, nbreVoy } = req.body;
+    const { username, email, password } = req.body;
     const user = await User.update(
       {
-        fullName: req.body.fullName,
-        email: req.body.email,
-        phoneNumber: req.body.phoneNumber,
-        date: req.body.date,
-        destination: req.body.destination,
-        nbreVoy: req.body.nbreV,
-      },
-      {
-        where: {
-          id: id,
-        },
-      }
-    );
-    res.status(201).send("user updated");
-  } catch (error) {
-    res.status(500).send("server error :", err);
-  }
-});
-/* UPDATE */
-const updateUser = async (req, res) => {
-  try {
-    const id = req.params.id;
-    let { username, email, password } = req.body;
-    const user = await User.update(
-      {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
+        username: username,
+        email: email,
+        password: password,
       },
       {
         where: {
@@ -101,7 +70,7 @@ const updateUser = async (req, res) => {
   }
 };
 /* DELETE */
-const deleteUser = async (req, res) => {
+exports.deleteUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = await User.destroy({
@@ -113,11 +82,4 @@ const deleteUser = async (req, res) => {
   } catch (error) {
     res.status(500).send("server error :", err);
   }
-};
-module.exports = {
-  getUser,
-  setUser,
-  getUsers,
-  updateUser,
-  deleteUser,
 };

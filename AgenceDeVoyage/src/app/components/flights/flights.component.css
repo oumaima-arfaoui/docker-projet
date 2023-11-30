@@ -46,20 +46,33 @@ a:hover {
   
 }
 .contactForm h1 {
-  padding: 15px 20px;
+  padding: 10px 20px;
+}
+input{
+  margin-bottom: 5px;
 }
 input[type="email"],
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+.form-select
+
+ {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: rgb(177, 177, 177) 1px solid;
-  margin-top: 10px;
+  
+}
+input[type="date"]{
+  width: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  border: rgb(177, 177, 177) 1px solid;
+  
 }
 .name {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: -5px;
 }
 .iconName {
   position: absolute;
@@ -69,6 +82,8 @@ input[type="password"] {
 
 input[type="checkbox"] {
   margin-right: 10px;
+ 
+
 }
 input[type="submit"] {
   background-color: #3c63cc;
@@ -89,5 +104,15 @@ input[type="submit"]:hover {
 .checkbox{
   text-align: center;
 }
+.flight{
+  color: white;
+ 
+}
 
+label,input,select{
+  margin-bottom: 5px;
+  display: inline;
+  margin: 8px;
+
+}
 

@@ -9,16 +9,16 @@ module.exports = (configserverdb, Sequelize) => {
         type: Sequelize.STRING,
       },
       phoneNumber: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       date: {
-        type: Sequelize.date,
+        type: Sequelize.DATE,
       },
       destination: {
         type: Sequelize.STRING,
       },
       nbreVoy: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
     },
     {
@@ -29,3 +29,6 @@ module.exports = (configserverdb, Sequelize) => {
   );
   return User;
 };
+
+//check data type here =>
+// https://sequelize.org/docs/v7/models/data-types/

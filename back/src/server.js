@@ -1,13 +1,21 @@
 const express = require("express");
-const db = require("./src/config/db.config");
-const User = require("./src/config/db.config").user;
-const port = 5000;
 const app = express();
+const db = require("../src/config/dbconnection.js");
+const port = 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/user", require("./routes/routes"));
+//connect to db and create table
+db.configserverdb
+  .sync()
+  .then(() => {
+    console.log("****** tables created ! *********");
+  })
+  .catch((err) => {
+    console.log("err", err);
+  });
 
-app.use(errorHandler);
+require('../src/routes/routes.js')(app);
+
 app.listen(port, () => console.log(`Server started on port ${port}`));

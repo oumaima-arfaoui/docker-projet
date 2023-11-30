@@ -19,6 +19,7 @@
       <h1>Registaration Form</h1>
       <form>
         <div class="name">
+         
           <input
             type="text"
             name="fullName"
@@ -28,6 +29,8 @@
         </div>
 
         <div class="name">
+          
+
           <input
             type="email"
             name="email"
@@ -37,14 +40,17 @@
         </div>
 
         <div class="name">
+          
+
           <input
             type="text"
-            name="password"
+            name="phoneNumber"
             id="password"
             placeholder="Phone Number"
           />
         </div>
-        <select class="form-select" aria-label="Default select example">
+        
+        <select class="form-select" aria-label="Default select example" name="destination" >
           <option selected>select your destination</option>
           <option value="1">Paris</option>
           <option value="2">Munich</option>
@@ -52,6 +58,17 @@
           <option value="4">Kuala Lumpur</option>
           <option value="5">Vienna</option>
         </select>
+        <select class="form-select" aria-label="Default select example" name="nbreVoy" >
+          <option selected>Travelers number</option>
+          <option value="1">1PERS</option>
+          <option value="2">2PERS</option>
+          <option value="3">3PERS</option>
+          </select>
+          <div class="flight" >
+            <label id="flight">Flight date</label>
+            <input type="date" name="date" id="flight">
+            </div>
+        
       </form>
 
       <input type="submit" value="Register" />

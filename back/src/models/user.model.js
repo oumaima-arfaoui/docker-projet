@@ -17,9 +17,7 @@ module.exports = (configserverdb, Sequelize) => {
       destination: {
         type: Sequelize.STRING,
       },
-      nbreVoy: {
-        type: Sequelize.INTEGER,
-      },
+      
     },
     {
       timestamps: false,

@@ -15,7 +15,7 @@ exports.getUser = async (req, res) => {
 exports.AddUser = async (req, res) => {
   try {
     //destruction of object
-    const { fullName, email, phoneNumber, date, destination, nbreVoy } =
+    const { fullName, email, phoneNumber, date, destination  } =
       req.body;
 
     const user = await User.create({
@@ -24,7 +24,7 @@ exports.AddUser = async (req, res) => {
       phoneNumber: phoneNumber,
       date: date,
       destination: destination,
-      nbreVoy: nbreVoy,
+     
     });
     res.status(201).send({
       result: user,
@@ -51,12 +51,15 @@ exports.getUsers = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const id = req.params.id;
-    const { username, email, password } = req.body;
-    const user = await User.update(
+    const { fullName, email, phoneNumber, date, destination  } = req.body;
+    const User = await User.update(
       {
-        username: username,
-        email: email,
-        password: password,
+        fullName: fullName,
+      email: email,
+      phoneNumber: phoneNumber,
+      date: date,
+      destination: destination,
+     
       },
       {
         where: {

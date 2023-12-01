@@ -16,6 +16,7 @@ a:hover {
   margin-left: 30px;
   color: #2fa1fd;
 }
+
 .modernForm {
   max-width: 70%;
   display: flex;
@@ -46,7 +47,10 @@ a:hover {
   
 }
 .contactForm h1 {
-  padding: 10px 20px;
+  text-align: center;
+  color: beige;
+ margin-top: auto;
+ 
 }
 input{
   margin-bottom: 5px;
@@ -72,7 +76,7 @@ input[type="date"]{
 }
 .name {
   position: relative;
-  margin-bottom: -5px;
+  
 }
 .iconName {
   position: absolute;
@@ -110,7 +114,7 @@ input[type="submit"]:hover {
 }
 
 label,input,select{
-  margin-bottom: 5px;
+  margin-bottom: 50px;
   display: inline;
   margin: 8px;
 

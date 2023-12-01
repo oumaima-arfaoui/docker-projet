@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { FlightsComponent } from './components/flights/flights.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -14,11 +21,27 @@ import { FlightsComponent } from './components/flights/flights.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    FlightsComponent
+    FlightsComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    
+    BrowserAnimationsModule,
+  
+    ToastrModule.forRoot(
+      {
+        timeOut: 4000,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: true,
+      }
+    ), 
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

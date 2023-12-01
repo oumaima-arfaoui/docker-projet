@@ -7,7 +7,4 @@ module.exports = (app) => {
   app.put("/updateuser/:id", UserController.updateUser);
   app.delete("/delete/:id", UserController.deleteUser);
 };
-// dima tabda endpoint b / 
-// ken kharjtlk error not found akeka b html maaneha mesh yaarf fy route bkolha
 
-// switchi ll branch mteeik yehdik matnjmsh tab9a tekhdm al main o heya al main

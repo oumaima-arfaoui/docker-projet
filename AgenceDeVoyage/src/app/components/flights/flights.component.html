@@ -1,3 +1,4 @@
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -17,58 +18,154 @@
     </div>
     <div class="contactForm">
       <h1>Registaration Form</h1>
-      <form>
+      <form [formGroup]="travelersform" (ngSubmit)="submit()">
+        <!-- FULL NAME -->
+        
+          <!-- Content here -->
+        
+        
         <div class="name">
-         
           <input
             type="text"
             name="fullName"
             id="fullName"
             placeholder="Full Name"
+            formControlName="fullName"
           />
+           <!-- error messages -->
+           <div
+           *ngIf="
+             travelersform.controls['fullName'].invalid &&
+             (travelersform.controls['fullName'].dirty ||
+             travelersform.controls['fullName'].touched)
+           "
+           class="text-danger"
+         >
+           <div *ngIf="travelersform.controls['fullName'].hasError('required')">
+             <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+
+             Please enter your Full Name
+           </div>
+         </div>
         </div>
-
+<!-- EMAIL -->
         <div class="name">
-          
-
           <input
             type="email"
             name="email"
             id="email"
             placeholder="Enter you Email"
+            formControlName="email"
           />
+           <!-- error messages -->
         </div>
+        <div
+          *ngIf="
+            travelersform.controls['email'].invalid &&
+            (travelersform.controls['email'].dirty ||
+            travelersform.controls['email'].touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="travelersform.controls['email'].hasError('email')">
+            <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
 
+            you must insert an email
+          </div>
+          <div *ngIf="travelersform.controls['email'].hasError('required')">
+            <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+
+            Please enter your Email
+          </div>
+        </div>
+<!--phoneNumber-->
         <div class="name">
-          
-
           <input
             type="text"
             name="phoneNumber"
             id="password"
             placeholder="Phone Number"
+            formControlName="phoneNumber"
           />
-        </div>
-        
-        <div class="name">
-          
+           <!-- error messages -->
+           <div
+            *ngIf="
+              travelersform.controls['phoneNumber'].invalid &&
+              (travelersform.controls['phoneNumber'].dirty ||
+              travelersform.controls['phoneNumber'].touched)
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="travelersform.controls['phoneNumber'].hasError('required')"
+            >
+              <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
 
+              Please enter your phone number
+            </div>
+            <div
+              *ngIf="
+                travelersform.controls['phoneNumber'].hasError('maxlength') ||
+                travelersform.controls['phoneNumber'].hasError('minlength')
+              "
+            >
+              <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+
+              Number must be 8 characters long
+            </div>
+          </div>
+        </div>
+<!-- DESTINATION -->
+        <div class="name">
           <input
             type="text"
             name="destination"
             id="email"
             placeholder="Enter your destination"
+            formControlName="destination"
           />
+          <!-- error messages -->
+          <div
+          *ngIf="
+            travelersform.controls['destination'].invalid &&
+            (travelersform.controls['destination'].dirty ||
+            travelersform.controls['destination'].touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="travelersform.controls['destination'].hasError('required')">
+            <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+
+            Please enter your destination
+          </div>
         </div>
-        
-          <div class="flight" >
-            <label id="flight">Flight date</label>
-            <input type="date" name="date" id="flight">
-            </div>
+        </div>
+<!-- DATE -->
+        <div class="flight">
+          <label id="flight">Flight date</label>
+          <input type="date" name="date" id="flight"  formControlName="date"/>
+          <!-- error messages -->
+          <div
+          *ngIf="
+            travelersform.controls['date'].invalid &&
+            (travelersform.controls['date'].dirty ||
+            travelersform.controls['date'].touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="travelersform.controls['date'].hasError('required')">
+            <i class="fa-solid fa-triangle-exclamation fa-beat"></i>
+
+            Please enter the flight day
+          </div>
+        </div>
+        </div>
         
       </form>
 
-      <input type="submit" value="Register" />
+      <input type="submit" value="Register" (click)="submit" />
     </div>
+    
   </div>
+  
 </div>

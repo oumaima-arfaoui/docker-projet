@@ -20,7 +20,7 @@ export class userService {
 
        }
        getUser(id:any){
-    return this.http.get(`${this.url}/Flights/getuser/${id}`);
+    return this.http.get(`${this.url}/getuser/${id}`);
 
        }
      /*   updateUser(id:any){

@@ -9,7 +9,7 @@ import { FlightsComponent } from './components/flights/flights.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 
@@ -30,9 +30,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    
     BrowserAnimationsModule,
-  
     ToastrModule.forRoot(
       {
         timeOut: 4000,
@@ -40,8 +38,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         preventDuplicates: true,
       }
     ), 
-
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

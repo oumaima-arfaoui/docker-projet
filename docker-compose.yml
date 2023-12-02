@@ -1,20 +1,25 @@
-version: '2.23.0'
+version: '3.4'
 services:
  ####angular####
   angular: 
     container_name: docker_angular
     image: frontimage
-    build: .
+    build: 
+      context: ./AgenceDeVoyage
+      dockerfile: Dockerfile
     ports:
       - '4200:4200'
        ####express####
   express:
     image: backimage
-    build: .
+    build:
+      context: ./back
+      dockerfile: Dockerfile
     ports:
       - '5000:5000'
     depends_on:
       - mysql 
+    
   ####mysql####
   mysql:
     container_name: docker_mysql

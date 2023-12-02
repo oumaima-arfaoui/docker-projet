@@ -1,6 +1,6 @@
 version: '3.4'
 services:
- ####angular####
+  ################################ FRONTEND ####################################
   angular: 
     container_name: docker_angular
     image: frontimage
@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - '4200:4200'
-       ####express####
+  ################################ BACKEND ####################################
   express:
     image: backimage
     build:
@@ -19,8 +19,8 @@ services:
       - '5000:5000'
     depends_on:
       - mysql 
-    
-  ####mysql####
+
+  ################################ DATABASE ####################################
   mysql:
     container_name: docker_mysql
     image: mysql:latest

@@ -1,0 +1,27 @@
+version: '2.23.0'
+services:
+ ####angular####
+  angular: 
+    container_name: docker_angular
+    image: frontimage
+    build: .
+    ports:
+      - '4200:4200'
+       ####express####
+  express:
+    image: backimage
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mysql 
+  ####mysql####
+  mysql:
+    container_name: docker_mysql
+    image: mysql:latest
+    ports:
+    - '3306:3306'
+    
+
+
+ 

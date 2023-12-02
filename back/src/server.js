@@ -3,12 +3,12 @@ const app = express();
 const db = require("../src/config/dbconnection.js");
 const port = 5000;
 const cors = require("cors");
+
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:4200",
   })
 );
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

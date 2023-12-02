@@ -15,8 +15,7 @@ exports.getUser = async (req, res) => {
 exports.AddUser = async (req, res) => {
   try {
     //destruction of object
-    const { fullName, email, phoneNumber, date, destination  } =
-      req.body;
+    const { fullName, email, phoneNumber, date, destination } = req.body;
 
     const user = await User.create({
       fullName: fullName,
@@ -24,7 +23,6 @@ exports.AddUser = async (req, res) => {
       phoneNumber: phoneNumber,
       date: date,
       destination: destination,
-     
     });
     res.status(201).send({
       result: user,
@@ -51,15 +49,14 @@ exports.getUsers = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const id = req.params.id;
-    const { fullName, email, phoneNumber, date, destination  } = req.body;
+    const { fullName, email, phoneNumber, date, destination } = req.body;
     const User = await User.update(
       {
         fullName: fullName,
-      email: email,
-      phoneNumber: phoneNumber,
-      date: date,
-      destination: destination,
-     
+        email: email,
+        phoneNumber: phoneNumber,
+        date: date,
+        destination: destination,
       },
       {
         where: {
@@ -67,7 +64,9 @@ exports.updateUser = async (req, res) => {
         },
       }
     );
-    res.status(201).send("user updated");
+    res.status(201).send({
+      message: "user updated",
+    });
   } catch (error) {
     res.status(500).send("server error :", err);
   }
@@ -78,10 +77,12 @@ exports.deleteUser = async (req, res) => {
     const id = req.params.id;
     const user = await User.destroy({
       where: {
-        id: id,
+        id: +id,
       },
     });
-    res.status(200).send(`deleted ${id}`);
+    res.status(200).send({
+      message: "deleted success",
+    });
   } catch (error) {
     res.status(500).send("server error :", err);
   }

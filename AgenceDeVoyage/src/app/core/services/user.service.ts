@@ -17,13 +17,13 @@ export class userService {
   getallUsers() {
     return this.http.get(`${this.url}/getallusers`);
   }
-  getUser(id: any) {
+  getUser(id: number) {
     return this.http.get(`${this.url}/getuser/${id}`);
   }
-     updateUser(id:any,user: User){
-    return this.http.put(`${this.url}/Flights/updateuser/${id}`,user);
-       } 
-  delete(id: any) {
+  updateUser(id: number, user: User) {
+    return this.http.put(`${this.url}/updateuser/${id}`, user);
+  }
+  delete(id: number) {
     return this.http.delete(`${this.url}/delete/${id}`);
   }
 }

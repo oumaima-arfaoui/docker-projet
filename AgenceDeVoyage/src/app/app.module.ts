@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -22,6 +23,7 @@ import {  HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     FlightsComponent,
+    DashboardComponent,
     
   ],
   imports: [

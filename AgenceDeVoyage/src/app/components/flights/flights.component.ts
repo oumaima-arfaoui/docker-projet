@@ -16,7 +16,7 @@ export class FlightsComponent implements OnInit {
     private userService: userService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.travelersform = this.formbuilder.group({

@@ -21,7 +21,6 @@ services:
       - mysql 
 
   ################################ DATABASE ####################################
-
   mysql:
     container_name: docker_mysql
     image: mysql:latest

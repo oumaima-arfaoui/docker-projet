@@ -2,21 +2,24 @@ version: "3.7"
 services:
   ################################ FRONTEND ####################################
   angular: 
-    container_name: docker_angular
+    container_name: angular
     image: frontimage
     build: 
       context: ./AgenceDeVoyage
       dockerfile: Dockerfile
     ports:
-      - '4200:4200'
+      - 4200:80
+    networks:
+      - my_network 
   ################################ BACKEND ####################################
   express:
+    container_name: express
     image: backimage
     build:
       context: ./back
       dockerfile: Dockerfile
     environment:
-        - HOST=mysql
+        - HOST=docker_mysql
         - USER=root
         - PASSWORD=root
         - DB=Agence_de_voyage
@@ -25,18 +28,22 @@ services:
     ports:
       - '5000:5000'
     depends_on:
-      - mysql 
+      - docker_mysql
+    networks:
+      - my_network 
 
   ################################ DATABASE ####################################
-  mysql:
-    image: mysql:latest
+  docker_mysql:
     container_name: docker_mysql
+    image: "mariadb:latest"
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=Agence_de_voyage
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=Agence_de_voyage
     ports:
-    - '3306:3306'
-    
+      - 3306:3306
+    networks:
+      - my_network
 
-
- 
+  
+networks:
+  my_network:

@@ -1,11 +1,10 @@
-const config = require("./db.config.js");
 const createDB = require("./createDB");
 
 const Sequelize = require("sequelize");
-const configserverdb = new Sequelize(config.DB, config.USER, config.PASSWORD, {
-  host: config.HOST,
-  port: config.port,
-  dialect: config.dialect,
+const configserverdb = new Sequelize(process.env.DB, process.env.USER, process.env.PASSWORD, {
+  host: process.env.HOST,
+  port: process.env.PORT,
+  dialect: process.env.DIALECT,
   operatorsAliases: false,
 });
 

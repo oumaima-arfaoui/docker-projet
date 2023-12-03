@@ -1,18 +1,18 @@
 const mysql = require("mysql2");
-const dbconfig=require("./db.config")
+
 function createDB() {
   return new Promise((resolve, reject) => {
     // Open the connection to MySQL server
     const connection = mysql.createConnection({
-      host: dbconfig.HOST,
-      port: dbconfig.port,
-      user: dbconfig.USER,
-      password: dbconfig.PASSWORD,
+      host: process.env.HOST,
+      port: process.env.PORT,
+      user: process.env.USER,
+      password: process.env.PASSWORD,
     });
 
     // Run create database statement
     connection.query(
-      `CREATE DATABASE IF NOT EXISTS ${dbconfig.DB}`,
+      `CREATE DATABASE IF NOT EXISTS ${process.env.DB}`,
       (err) => {
         // Close the connection
         connection.end();

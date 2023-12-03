@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const db = require("./src/config/dbconnection.js");
 const PORT = 5000;
 const cors = require("cors");
+const morgan = require("morgan");
 
 app.use(
   cors({
@@ -10,6 +12,7 @@ app.use(
   })
 );
 
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

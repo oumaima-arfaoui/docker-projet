@@ -1,22 +1,15 @@
-# FROM  node:18 
-# WORKDIR /app
-# COPY package*.json ./
-# RUN npm install
-# COPY . .
-# EXPOSE 4200
-# CMD [ "npm","start" ]
-FROM node:18
+FROM node:18 as builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . /app
 
-RUN npm install
+RUN npm uninstall -D angular-cli --legacy-peer-deps
 
-COPY . .
+RUN npm install --force
 
-RUN npm run build --prod
+FROM nginx:latest
 
-EXPOSE 80
+COPY --from=builder /app/dist/agence-de-voyage /usr/share/nginx/html
 
-CMD ["npm", "run", "start"]
+EXPOSE 4200
